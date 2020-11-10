@@ -58,26 +58,49 @@ namespace Graph {
 
 	private: System::Windows::Forms::Label^ label_x_0;
 
-	private: System::Windows::Forms::TextBox^ textBox_max_GE;
-	private: System::Windows::Forms::TextBox^ textBox_max_GE_x;
-	private: System::Windows::Forms::Label^ label_max_GE;
-	private: System::Windows::Forms::Label^ label_max_GE_x;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ i;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ x_i;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ v_i;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ v2_i;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ LEE;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_h_i;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ SDC;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ SIC;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ u_i;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Error;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::TextBox^ textBox_epsilon;
 	private: System::Windows::Forms::Label^ label_epsilon;
 	private: System::Windows::Forms::TextBox^ textBox_z_0;
 
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ i;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ x_i;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ u_i;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ z_i;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ u2_i;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ z2_i;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ LEE;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_h_i;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ SDC;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ SIC;
+
+
+
+
+
+
+
+
+
+
 
 	protected:
 	private: System::ComponentModel::IContainer^  components;
@@ -101,15 +124,16 @@ namespace Graph {
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->i = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->x_i = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->v_i = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->v2_i = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->u_i = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->z_i = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->u2_i = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->z2_i = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->LEE = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column_h_i = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->SDC = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->SIC = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->u_i = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Error = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label_x_max = (gcnew System::Windows::Forms::Label());
 			this->textBox_x_max = (gcnew System::Windows::Forms::TextBox());
 			this->label_h = (gcnew System::Windows::Forms::Label());
@@ -120,10 +144,6 @@ namespace Graph {
 			this->label_N_max = (gcnew System::Windows::Forms::Label());
 			this->textBox_x_0 = (gcnew System::Windows::Forms::TextBox());
 			this->label_x_0 = (gcnew System::Windows::Forms::Label());
-			this->textBox_max_GE = (gcnew System::Windows::Forms::TextBox());
-			this->textBox_max_GE_x = (gcnew System::Windows::Forms::TextBox());
-			this->label_max_GE = (gcnew System::Windows::Forms::Label());
-			this->label_max_GE_x = (gcnew System::Windows::Forms::Label());
 			this->textBox_epsilon = (gcnew System::Windows::Forms::TextBox());
 			this->label_epsilon = (gcnew System::Windows::Forms::Label());
 			this->textBox_z_0 = (gcnew System::Windows::Forms::TextBox());
@@ -159,14 +179,14 @@ namespace Graph {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(11) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(12) {
 				this->i, this->x_i,
-					this->v_i, this->v2_i, this->Column3, this->LEE, this->Column_h_i, this->SDC, this->SIC, this->u_i, this->Error
+					this->u_i, this->z_i, this->u2_i, this->z2_i, this->Column3, this->Column1, this->LEE, this->Column_h_i, this->SDC, this->SIC
 			});
-			this->dataGridView1->Location = System::Drawing::Point(559, 30);
+			this->dataGridView1->Location = System::Drawing::Point(549, 30);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersVisible = false;
-			this->dataGridView1->Size = System::Drawing::Size(702, 327);
+			this->dataGridView1->Size = System::Drawing::Size(849, 327);
 			this->dataGridView1->TabIndex = 2;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick);
 			// 
@@ -183,25 +203,43 @@ namespace Graph {
 			this->x_i->ReadOnly = true;
 			this->x_i->Width = 50;
 			// 
-			// v_i
+			// u_i
 			// 
-			this->v_i->HeaderText = L"v_i";
-			this->v_i->Name = L"v_i";
-			this->v_i->ReadOnly = true;
-			this->v_i->Width = 50;
+			this->u_i->HeaderText = L"u_i";
+			this->u_i->Name = L"u_i";
+			this->u_i->ReadOnly = true;
+			this->u_i->Width = 50;
 			// 
-			// v2_i
+			// z_i
 			// 
-			this->v2_i->HeaderText = L"v2_i";
-			this->v2_i->Name = L"v2_i";
-			this->v2_i->ReadOnly = true;
-			this->v2_i->Width = 50;
+			this->z_i->HeaderText = L"z_i";
+			this->z_i->Name = L"z_i";
+			this->z_i->Width = 50;
+			// 
+			// u2_i
+			// 
+			this->u2_i->HeaderText = L"u2_i";
+			this->u2_i->Name = L"u2_i";
+			this->u2_i->ReadOnly = true;
+			this->u2_i->Width = 50;
+			// 
+			// z2_i
+			// 
+			this->z2_i->HeaderText = L"z2_i";
+			this->z2_i->Name = L"z2_i";
+			this->z2_i->Width = 50;
 			// 
 			// Column3
 			// 
-			this->Column3->HeaderText = L"v_i - v2_i";
+			this->Column3->HeaderText = L"u_i - u2_i";
 			this->Column3->Name = L"Column3";
 			this->Column3->Width = 75;
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"z_i - z2_i";
+			this->Column1->Name = L"Column1";
+			this->Column1->Width = 75;
 			// 
 			// LEE
 			// 
@@ -227,18 +265,6 @@ namespace Graph {
 			this->SIC->Name = L"SIC";
 			this->SIC->Width = 50;
 			// 
-			// u_i
-			// 
-			this->u_i->HeaderText = L"u_i";
-			this->u_i->Name = L"u_i";
-			this->u_i->Width = 50;
-			// 
-			// Error
-			// 
-			this->Error->HeaderText = L"|u_i-v_i|";
-			this->Error->Name = L"Error";
-			this->Error->Width = 50;
-			// 
 			// label_x_max
 			// 
 			this->label_x_max->AutoSize = true;
@@ -254,7 +280,7 @@ namespace Graph {
 			this->textBox_x_max->Name = L"textBox_x_max";
 			this->textBox_x_max->Size = System::Drawing::Size(61, 20);
 			this->textBox_x_max->TabIndex = 6;
-			this->textBox_x_max->Text = L"20";
+			this->textBox_x_max->Text = L"10";
 			// 
 			// label_h
 			// 
@@ -324,38 +350,6 @@ namespace Graph {
 			this->label_x_0->TabIndex = 19;
 			this->label_x_0->Text = L"x_0";
 			// 
-			// textBox_max_GE
-			// 
-			this->textBox_max_GE->Location = System::Drawing::Point(1120, 391);
-			this->textBox_max_GE->Name = L"textBox_max_GE";
-			this->textBox_max_GE->Size = System::Drawing::Size(131, 20);
-			this->textBox_max_GE->TabIndex = 20;
-			// 
-			// textBox_max_GE_x
-			// 
-			this->textBox_max_GE_x->Location = System::Drawing::Point(1120, 426);
-			this->textBox_max_GE_x->Name = L"textBox_max_GE_x";
-			this->textBox_max_GE_x->Size = System::Drawing::Size(131, 20);
-			this->textBox_max_GE_x->TabIndex = 21;
-			// 
-			// label_max_GE
-			// 
-			this->label_max_GE->AutoSize = true;
-			this->label_max_GE->Location = System::Drawing::Point(1005, 394);
-			this->label_max_GE->Name = L"label_max_GE";
-			this->label_max_GE->Size = System::Drawing::Size(109, 13);
-			this->label_max_GE->TabIndex = 22;
-			this->label_max_GE->Text = L"Maximum Global Error";
-			// 
-			// label_max_GE_x
-			// 
-			this->label_max_GE_x->AutoSize = true;
-			this->label_max_GE_x->Location = System::Drawing::Point(1098, 429);
-			this->label_max_GE_x->Name = L"label_max_GE_x";
-			this->label_max_GE_x->Size = System::Drawing::Size(16, 13);
-			this->label_max_GE_x->TabIndex = 23;
-			this->label_max_GE_x->Text = L"at";
-			// 
 			// textBox_epsilon
 			// 
 			this->textBox_epsilon->Location = System::Drawing::Point(353, 417);
@@ -394,15 +388,11 @@ namespace Graph {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1280, 497);
+			this->ClientSize = System::Drawing::Size(1440, 497);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox_z_0);
 			this->Controls->Add(this->label_epsilon);
 			this->Controls->Add(this->textBox_epsilon);
-			this->Controls->Add(this->label_max_GE_x);
-			this->Controls->Add(this->label_max_GE);
-			this->Controls->Add(this->textBox_max_GE_x);
-			this->Controls->Add(this->textBox_max_GE);
 			this->Controls->Add(this->label_x_0);
 			this->Controls->Add(this->textBox_x_0);
 			this->Controls->Add(this->label_N_max);
@@ -459,15 +449,20 @@ namespace Graph {
 		double u_0 = Convert::ToDouble(textBox_u_0->Text);
 		double z_0 = Convert::ToDouble(textBox_z_0->Text);
 		double epsilon = Convert::ToDouble(textBox_epsilon->Text);
-		std::list<std::vector<double>> num_func = numerical_function_task11(x_0, u_0, z_0, h, xmax, n);
+		//std::list<std::vector<double>> num_func = numerical_function_task11(x_0, u_0, z_0, h, xmax, n);
+		std::list<std::vector<double>> num_func = numerical_function_control_task11(x_0, u_0, z_0, h, xmax, n, epsilon);
 		// Список точек
 		dataGridView1->Rows->Clear(); 
 		std::list<std::vector<double>> ::iterator it;
 		int i = 0;
 		double x = x_0;
+		/*
 		double global_error = 0;
 		double global_error_max = 0;
 		double global_error_max_x = x_0;
+		*/
+		double max_local_error = 0;
+
 		for (it = num_func.begin(); it != num_func.end(); it++)
 		{
 			x = it->at(0);
@@ -483,29 +478,39 @@ namespace Graph {
 				global_error_max_x = x;
 			}
 			*/
+			
 			//Печать в таблицу
-			/*
 			dataGridView1->Rows->Add();
-			dataGridView1->Rows[i]->Cells[0]->Value = i; 			
+			dataGridView1->Rows[i]->Cells[0]->Value = i;
 			dataGridView1->Rows[i]->Cells[1]->Value = x;
 			dataGridView1->Rows[i]->Cells[2]->Value = it->at(1);
 			dataGridView1->Rows[i]->Cells[3]->Value = it->at(2);
 			dataGridView1->Rows[i]->Cells[4]->Value = it->at(3);
-			dataGridView1->Rows[i]->Cells[5]->Value = it->at(3);
-			dataGridView1->Rows[i]->Cells[6]->Value = it->at(4);
-			dataGridView1->Rows[i]->Cells[7]->Value = it->at(5);
-			dataGridView1->Rows[i]->Cells[8]->Value = it->at(6);
-			dataGridView1->Rows[i]->Cells[9]->Value = analytical_test_function(x, x_0, u_0);
-			dataGridView1->Rows[i]->Cells[10]->Value = global_error;
+			dataGridView1->Rows[i]->Cells[5]->Value = it->at(4);
+			dataGridView1->Rows[i]->Cells[6]->Value = it->at(5);
+			dataGridView1->Rows[i]->Cells[7]->Value = it->at(6);
+			dataGridView1->Rows[i]->Cells[8]->Value = it->at(7);
+			dataGridView1->Rows[i]->Cells[9]->Value = it->at(8);
+			dataGridView1->Rows[i]->Cells[10]->Value = it->at(9);
+			dataGridView1->Rows[i]->Cells[11]->Value = it->at(10);
+			//Поиск максимальной локальной ошибки
+			/*
+			if (it->at(8) > max_local_error)
+			{
+				max_local_error = it->at(8);
+			}
 			*/
+			
 			i++;
 		}
-		textBox_max_GE->Text = Convert::ToString(global_error_max);
-		textBox_max_GE_x->Text = Convert::ToString(global_error_max_x);
+		//textBox_max_GE->Text = Convert::ToString(global_error_max);
+		//textBox_max_GE_x->Text = Convert::ToString(global_error_max_x);
 
 		LineItem Curve1 = panel->AddCurve("u' - u", f1_list, Color::Blue,SymbolType::None);
 		LineItem Curve2 = panel->AddCurve("u - x", f2_list, Color::Red, SymbolType::None);
 		LineItem Curve3 = panel->AddCurve("u' - x", f3_list, Color::Black, SymbolType::None);
+
+		//textBox_max_LE->Text = Convert::ToString(max_local_error);
 
 		// Устанавливаем интересующий нас интервал по оси X
 		//panel->XAxis->Scale->Min = xmin_limit;

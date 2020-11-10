@@ -3,6 +3,7 @@
 #include <cmath>
 #include <list>
 #include <vector>
+#define RIGHT_BORDER_CONTROL 0.05
 
 double func1_task11(double x, double u, double z)
 {
@@ -47,7 +48,7 @@ std::list<std::vector<double> > numerical_function_task11(double x0, double u0, 
 	std::vector<double> v0 = { x0, u0, z0 };
 	result.push_back(v0);
 	int i = 0;
-	while ((x < b) && (i < N_MAX))
+	while ((x < b - RIGHT_BORDER_CONTROL) && (i < N_MAX))
 	{
 		std::vector<double> tmp = RK4_task11(x, u_current, z_current, h);
 		u_next = tmp[0];
@@ -58,6 +59,62 @@ std::list<std::vector<double> > numerical_function_task11(double x0, double u0, 
 		std::vector<double> v = { x, u_current, z_current };
 		result.push_back(v);
 		i++;
+	}
+	return result;
+}
+
+std::list<std::vector<double> > numerical_function_control_task11(double x0, double u0, double z0, double h0, double b, double N_MAX, double epsilon)
+{
+	std::list<std::vector<double> > result;
+	double u_next, z_next, u_current, z_current, u_next_double, z_next_double, s_u, s_z, h;
+	u_current = u0;
+	z_current = z0;
+	h = h0;
+	double x = x0;
+	double C1 = 0, C2 = 0;
+	std::vector<double> v0 = { x0, u0, z0, u0, z0, 0, 0, 0, h, C1, C2 };
+	result.push_back(v0);
+	int i = 0;
+	while ((x < b - RIGHT_BORDER_CONTROL) && (i < N_MAX))
+	{
+		std::vector<double> tmp = RK4_task11(x, u_current, z_current, h);
+		u_next = tmp[0];
+		z_next = tmp[1];
+		tmp = RK4_task11(x, u_current, z_current, h / 2.0);
+		u_next_double = tmp[0];
+		z_next_double = tmp[1];
+		tmp = RK4_task11(x + h / 2.0, u_next_double, z_next_double, h / 2.0);
+		u_next_double = tmp[0];
+		z_next_double = tmp[1];
+		s_u = (u_next_double - u_next) / 15.0;
+		s_u = fabs(s_u);
+		s_z = (z_next_double - z_next) / 15.0;
+		s_z = fabs(s_z);
+		if (s_u > epsilon || s_z > epsilon)
+		{
+			h /= 2.0;
+			C1++;
+		}
+		else
+		{
+			x += h;
+			u_current = u_next;
+			z_current = z_next;
+			double s_max = s_u;
+			if (s_z > s_max)
+			{
+				s_max = s_z;
+			}
+			std::vector<double> v = { x, u_current, z_current, u_next_double, z_next_double, u_current - u_next_double, z_current - z_next_double, s_max * 16.0, h, C1, C2 };
+			if (s_u < epsilon / 32.0 && s_z < epsilon / 32.0)
+			{
+				h *= 2.0;
+				C2++;
+			}
+			v[10] = C2;
+			result.push_back(v);
+			i++;
+		}
 	}
 	return result;
 }

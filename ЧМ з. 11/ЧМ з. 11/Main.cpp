@@ -4,6 +4,7 @@
 #include <iterator>
 #include <iomanip>
 #include "RK4.h"
+#define EPS 0.001
 
 int main()
 {
@@ -16,7 +17,7 @@ int main()
 	int N_MAX;
 	std::cout << "¬ведите h, b и N_MAX" << std::endl;
 	std::cin >> h >> b >> N_MAX;
-	std::list<std::vector<double> > result = numerical_function_task11(x0, u0, z0, h, b, N_MAX);
+	std::list<std::vector<double> > result = numerical_function_control_task11(x0, u0, z0, h, b, N_MAX, EPS);
 	std::list<std::vector<double> >::iterator it;
 	std::cout << "x     | u          u'" << std::endl;
 	for (it = result.begin(); it != result.end(); it++)

@@ -91,6 +91,8 @@ namespace Graph {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column_h_i;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ SDC;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ SIC;
+	private: ZedGraph::ZedGraphControl^ zedGraphControl2;
+	private: ZedGraph::ZedGraphControl^ zedGraphControl3;
 
 
 
@@ -148,6 +150,8 @@ namespace Graph {
 			this->label_epsilon = (gcnew System::Windows::Forms::Label());
 			this->textBox_z_0 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->zedGraphControl2 = (gcnew ZedGraph::ZedGraphControl());
+			this->zedGraphControl3 = (gcnew ZedGraph::ZedGraphControl());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -168,7 +172,7 @@ namespace Graph {
 			// 
 			// button_Draw
 			// 
-			this->button_Draw->Location = System::Drawing::Point(583, 386);
+			this->button_Draw->Location = System::Drawing::Point(1331, 675);
 			this->button_Draw->Name = L"button_Draw";
 			this->button_Draw->Size = System::Drawing::Size(142, 29);
 			this->button_Draw->TabIndex = 1;
@@ -268,7 +272,7 @@ namespace Graph {
 			// label_x_max
 			// 
 			this->label_x_max->AutoSize = true;
-			this->label_x_max->Location = System::Drawing::Point(152, 394);
+			this->label_x_max->Location = System::Drawing::Point(1211, 623);
 			this->label_x_max->Name = L"label_x_max";
 			this->label_x_max->Size = System::Drawing::Size(37, 13);
 			this->label_x_max->TabIndex = 5;
@@ -276,7 +280,7 @@ namespace Graph {
 			// 
 			// textBox_x_max
 			// 
-			this->textBox_x_max->Location = System::Drawing::Point(195, 391);
+			this->textBox_x_max->Location = System::Drawing::Point(1254, 620);
 			this->textBox_x_max->Name = L"textBox_x_max";
 			this->textBox_x_max->Size = System::Drawing::Size(61, 20);
 			this->textBox_x_max->TabIndex = 6;
@@ -285,7 +289,7 @@ namespace Graph {
 			// label_h
 			// 
 			this->label_h->AutoSize = true;
-			this->label_h->Location = System::Drawing::Point(176, 420);
+			this->label_h->Location = System::Drawing::Point(1235, 649);
 			this->label_h->Name = L"label_h";
 			this->label_h->Size = System::Drawing::Size(13, 13);
 			this->label_h->TabIndex = 7;
@@ -293,7 +297,7 @@ namespace Graph {
 			// 
 			// textBox_h
 			// 
-			this->textBox_h->Location = System::Drawing::Point(195, 417);
+			this->textBox_h->Location = System::Drawing::Point(1254, 646);
 			this->textBox_h->Name = L"textBox_h";
 			this->textBox_h->Size = System::Drawing::Size(61, 20);
 			this->textBox_h->TabIndex = 8;
@@ -301,7 +305,7 @@ namespace Graph {
 			// 
 			// textBox_u_0
 			// 
-			this->textBox_u_0->Location = System::Drawing::Point(65, 417);
+			this->textBox_u_0->Location = System::Drawing::Point(1124, 646);
 			this->textBox_u_0->Name = L"textBox_u_0";
 			this->textBox_u_0->Size = System::Drawing::Size(61, 20);
 			this->textBox_u_0->TabIndex = 14;
@@ -310,7 +314,7 @@ namespace Graph {
 			// label_u_0
 			// 
 			this->label_u_0->AutoSize = true;
-			this->label_u_0->Location = System::Drawing::Point(34, 420);
+			this->label_u_0->Location = System::Drawing::Point(1093, 649);
 			this->label_u_0->Name = L"label_u_0";
 			this->label_u_0->Size = System::Drawing::Size(25, 13);
 			this->label_u_0->TabIndex = 15;
@@ -318,7 +322,7 @@ namespace Graph {
 			// 
 			// textBox_N_max
 			// 
-			this->textBox_N_max->Location = System::Drawing::Point(353, 391);
+			this->textBox_N_max->Location = System::Drawing::Point(1412, 620);
 			this->textBox_N_max->Name = L"textBox_N_max";
 			this->textBox_N_max->Size = System::Drawing::Size(61, 20);
 			this->textBox_N_max->TabIndex = 16;
@@ -327,7 +331,7 @@ namespace Graph {
 			// label_N_max
 			// 
 			this->label_N_max->AutoSize = true;
-			this->label_N_max->Location = System::Drawing::Point(307, 394);
+			this->label_N_max->Location = System::Drawing::Point(1366, 623);
 			this->label_N_max->Name = L"label_N_max";
 			this->label_N_max->Size = System::Drawing::Size(40, 13);
 			this->label_N_max->TabIndex = 17;
@@ -335,7 +339,7 @@ namespace Graph {
 			// 
 			// textBox_x_0
 			// 
-			this->textBox_x_0->Location = System::Drawing::Point(65, 391);
+			this->textBox_x_0->Location = System::Drawing::Point(1124, 620);
 			this->textBox_x_0->Name = L"textBox_x_0";
 			this->textBox_x_0->Size = System::Drawing::Size(61, 20);
 			this->textBox_x_0->TabIndex = 18;
@@ -344,7 +348,7 @@ namespace Graph {
 			// label_x_0
 			// 
 			this->label_x_0->AutoSize = true;
-			this->label_x_0->Location = System::Drawing::Point(35, 394);
+			this->label_x_0->Location = System::Drawing::Point(1094, 623);
 			this->label_x_0->Name = L"label_x_0";
 			this->label_x_0->Size = System::Drawing::Size(24, 13);
 			this->label_x_0->TabIndex = 19;
@@ -352,7 +356,7 @@ namespace Graph {
 			// 
 			// textBox_epsilon
 			// 
-			this->textBox_epsilon->Location = System::Drawing::Point(353, 417);
+			this->textBox_epsilon->Location = System::Drawing::Point(1412, 646);
 			this->textBox_epsilon->Name = L"textBox_epsilon";
 			this->textBox_epsilon->Size = System::Drawing::Size(61, 20);
 			this->textBox_epsilon->TabIndex = 24;
@@ -361,7 +365,7 @@ namespace Graph {
 			// label_epsilon
 			// 
 			this->label_epsilon->AutoSize = true;
-			this->label_epsilon->Location = System::Drawing::Point(307, 420);
+			this->label_epsilon->Location = System::Drawing::Point(1366, 649);
 			this->label_epsilon->Name = L"label_epsilon";
 			this->label_epsilon->Size = System::Drawing::Size(40, 13);
 			this->label_epsilon->TabIndex = 25;
@@ -369,7 +373,7 @@ namespace Graph {
 			// 
 			// textBox_z_0
 			// 
-			this->textBox_z_0->Location = System::Drawing::Point(65, 443);
+			this->textBox_z_0->Location = System::Drawing::Point(1124, 672);
 			this->textBox_z_0->Name = L"textBox_z_0";
 			this->textBox_z_0->Size = System::Drawing::Size(61, 20);
 			this->textBox_z_0->TabIndex = 26;
@@ -378,17 +382,47 @@ namespace Graph {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(32, 446);
+			this->label1->Location = System::Drawing::Point(1091, 675);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(27, 13);
 			this->label1->TabIndex = 27;
 			this->label1->Text = L"u\'_0";
 			// 
+			// zedGraphControl2
+			// 
+			this->zedGraphControl2->Location = System::Drawing::Point(38, 363);
+			this->zedGraphControl2->Name = L"zedGraphControl2";
+			this->zedGraphControl2->ScrollGrace = 0;
+			this->zedGraphControl2->ScrollMaxX = 0;
+			this->zedGraphControl2->ScrollMaxY = 0;
+			this->zedGraphControl2->ScrollMaxY2 = 0;
+			this->zedGraphControl2->ScrollMinX = 0;
+			this->zedGraphControl2->ScrollMinY = 0;
+			this->zedGraphControl2->ScrollMinY2 = 0;
+			this->zedGraphControl2->Size = System::Drawing::Size(501, 327);
+			this->zedGraphControl2->TabIndex = 28;
+			// 
+			// zedGraphControl3
+			// 
+			this->zedGraphControl3->Location = System::Drawing::Point(549, 363);
+			this->zedGraphControl3->Name = L"zedGraphControl3";
+			this->zedGraphControl3->ScrollGrace = 0;
+			this->zedGraphControl3->ScrollMaxX = 0;
+			this->zedGraphControl3->ScrollMaxY = 0;
+			this->zedGraphControl3->ScrollMaxY2 = 0;
+			this->zedGraphControl3->ScrollMinX = 0;
+			this->zedGraphControl3->ScrollMinY = 0;
+			this->zedGraphControl3->ScrollMinY2 = 0;
+			this->zedGraphControl3->Size = System::Drawing::Size(501, 327);
+			this->zedGraphControl3->TabIndex = 29;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1440, 497);
+			this->ClientSize = System::Drawing::Size(1485, 736);
+			this->Controls->Add(this->zedGraphControl3);
+			this->Controls->Add(this->zedGraphControl2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox_z_0);
 			this->Controls->Add(this->label_epsilon);
@@ -427,7 +461,11 @@ namespace Graph {
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 
 		GraphPane^ panel = zedGraphControl1->GraphPane;
+		GraphPane^ panel2 = zedGraphControl2->GraphPane;
+		GraphPane^ panel3 = zedGraphControl3->GraphPane;
 		panel->CurveList->Clear();
+		panel2->CurveList->Clear();
+		panel3->CurveList->Clear();
 		PointPairList^ f1_list = gcnew ZedGraph::PointPairList();
 		PointPairList^ f2_list = gcnew ZedGraph::PointPairList();
 		PointPairList^ f3_list = gcnew ZedGraph::PointPairList();
@@ -507,8 +545,8 @@ namespace Graph {
 		//textBox_max_GE_x->Text = Convert::ToString(global_error_max_x);
 
 		LineItem Curve1 = panel->AddCurve("u' - u", f1_list, Color::Blue,SymbolType::None);
-		LineItem Curve2 = panel->AddCurve("u - x", f2_list, Color::Red, SymbolType::None);
-		LineItem Curve3 = panel->AddCurve("u' - x", f3_list, Color::Black, SymbolType::None);
+		LineItem Curve2 = panel2->AddCurve("u - x", f2_list, Color::Red, SymbolType::None);
+		LineItem Curve3 = panel3->AddCurve("u' - x", f3_list, Color::Black, SymbolType::None);
 
 		//textBox_max_LE->Text = Convert::ToString(max_local_error);
 
@@ -526,6 +564,14 @@ namespace Graph {
 		zedGraphControl1->AxisChange();
 		// Обновляем график
 		zedGraphControl1->Invalidate();
+		// которая умещается в интервалы по осям, установленные по умолчанию
+		zedGraphControl2->AxisChange();
+		// Обновляем график
+		zedGraphControl2->Invalidate();
+		// которая умещается в интервалы по осям, установленные по умолчанию
+		zedGraphControl3->AxisChange();
+		// Обновляем график
+		zedGraphControl3->Invalidate();
 
 	}
 	private: System::Void zedGraphControl1_Load(System::Object^  sender, System::EventArgs^  e) {

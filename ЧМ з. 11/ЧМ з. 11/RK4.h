@@ -13,7 +13,8 @@ double func1_task11(double x, double u, double z)
 double func2_task11(double x, double u, double z)
 {
 	double m, c, k, k_;
-	m = 1.0;
+	//m = 1.0;
+	m = 0.01;
 	c = 0.15;
 	k = 2.0;
 	k_ = 2.0;
@@ -98,6 +99,12 @@ std::list<std::vector<double> > numerical_function_control_task11(double x0, dou
 		else
 		{
 			x += h;
+			///*
+			if (x >= b)
+			{
+				break;
+			}
+			//*/
 			u_current = u_next;
 			z_current = z_next;
 			double s_max = s_u;

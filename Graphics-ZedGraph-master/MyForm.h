@@ -582,6 +582,15 @@ namespace Graph {
 		panel->CurveList->Clear();
 		panel2->CurveList->Clear();
 		panel3->CurveList->Clear();
+		panel->XAxis->Title->Text = "Ось u";
+		panel->YAxis->Title->Text = "Ось u'";
+		panel->Title->Text = "Фазовый портрет";
+		panel2->XAxis->Title->Text = "Ось x";
+		panel2->YAxis->Title->Text = "Ось u";
+		panel3->XAxis->Title->Text = "Ось x";
+		panel3->YAxis->Title->Text = "Ось u'";
+		panel2->Title->Text = "График";
+		panel3->Title->Text = "График";
 		PointPairList^ f1_list = gcnew ZedGraph::PointPairList();
 		PointPairList^ f2_list = gcnew ZedGraph::PointPairList();
 		PointPairList^ f3_list = gcnew ZedGraph::PointPairList();

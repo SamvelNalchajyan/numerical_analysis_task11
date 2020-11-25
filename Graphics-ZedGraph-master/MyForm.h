@@ -557,7 +557,7 @@ namespace Graph {
 			this->Controls->Add(this->button_Draw);
 			this->Controls->Add(this->zedGraphControl1);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"Задание 11";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
@@ -668,9 +668,9 @@ namespace Graph {
 		//textBox_max_GE->Text = Convert::ToString(global_error_max);
 		//textBox_max_GE_x->Text = Convert::ToString(global_error_max_x);
 
-		LineItem Curve1 = panel->AddCurve("u' - u", f1_list, Color::Blue,SymbolType::None);
-		LineItem Curve2 = panel2->AddCurve("u - x", f2_list, Color::Red, SymbolType::None);
-		LineItem Curve3 = panel3->AddCurve("u' - x", f3_list, Color::Black, SymbolType::None);
+		LineItem Curve1 = panel->AddCurve("u - u'", f1_list, Color::Blue,SymbolType::None);
+		LineItem Curve2 = panel2->AddCurve("x - u", f2_list, Color::Red, SymbolType::None);
+		LineItem Curve3 = panel3->AddCurve("x - u'", f3_list, Color::Black, SymbolType::None);
 
 		//textBox_max_LE->Text = Convert::ToString(max_local_error);
 

@@ -16,7 +16,7 @@ double func2_task11(double x, double u, double z, double m, double c, double k, 
 	//m = 1.0;
 	
 	double m_ = 0.01 * m;
-	return ((-c / m_) * z + (-k / m_) * u + (-k / m_) * (u * u * u));
+	return ((-c / m_) * z + (-k / m_) * u + (-k_ / m_) * (u * u * u));
 }
 
 std::vector<double> RK4_task11(double x, double u, double z, double h, double m, double c, double k, double k_)

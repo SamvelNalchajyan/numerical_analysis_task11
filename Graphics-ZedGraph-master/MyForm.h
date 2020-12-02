@@ -103,6 +103,11 @@ namespace Graph {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::TextBox^ textBox_RBC;
 	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ label11;
 
 
 
@@ -132,6 +137,7 @@ namespace Graph {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->zedGraphControl1 = (gcnew ZedGraph::ZedGraphControl());
 			this->button_Draw = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
@@ -173,6 +179,11 @@ namespace Graph {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->textBox_RBC = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -507,7 +518,7 @@ namespace Graph {
 			// 
 			// textBox_RBC
 			// 
-			this->textBox_RBC->Location = System::Drawing::Point(1412, 412);
+			this->textBox_RBC->Location = System::Drawing::Point(1412, 594);
 			this->textBox_RBC->Name = L"textBox_RBC";
 			this->textBox_RBC->Size = System::Drawing::Size(61, 20);
 			this->textBox_RBC->TabIndex = 38;
@@ -516,17 +527,69 @@ namespace Graph {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(1251, 415);
+			this->label6->Location = System::Drawing::Point(1251, 597);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(156, 13);
 			this->label6->TabIndex = 39;
 			this->label6->Text = L"Параметр выхода на границу";
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(1191, 415);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(40, 13);
+			this->label7->TabIndex = 40;
+			this->label7->Text = L"Масса";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(1191, 441);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(162, 13);
+			this->label8->TabIndex = 41;
+			this->label8->Text = L"Коэффициент демпфирования";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(1191, 467);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(64, 13);
+			this->label9->TabIndex = 42;
+			this->label9->Text = L"Жёсткость";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(1191, 493);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(156, 13);
+			this->label10->TabIndex = 43;
+			this->label10->Text = L" Нелинейная характеристика";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label11->Location = System::Drawing::Point(12, 721);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(1465, 144);
+			this->label11->TabIndex = 44;
+			this->label11->Text = resources->GetString(L"label11.Text");
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1485, 736);
+			this->ClientSize = System::Drawing::Size(1485, 907);
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->textBox_RBC);
 			this->Controls->Add(this->label5);
@@ -557,7 +620,7 @@ namespace Graph {
 			this->Controls->Add(this->button_Draw);
 			this->Controls->Add(this->zedGraphControl1);
 			this->Name = L"MyForm";
-			this->Text = L"Задание 11";
+			this->Text = L"Задание 11 Самвел Налчаджян";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
@@ -582,15 +645,15 @@ namespace Graph {
 		panel->CurveList->Clear();
 		panel2->CurveList->Clear();
 		panel3->CurveList->Clear();
-		panel->XAxis->Title->Text = "Ось u";
-		panel->YAxis->Title->Text = "Ось u'";
+		panel->XAxis->Title->Text = "Ось u, смещение";
+		panel->YAxis->Title->Text = "Ось u', скорость";
 		panel->Title->Text = "Фазовый портрет";
-		panel2->XAxis->Title->Text = "Ось x";
-		panel2->YAxis->Title->Text = "Ось u";
-		panel3->XAxis->Title->Text = "Ось x";
-		panel3->YAxis->Title->Text = "Ось u'";
-		panel2->Title->Text = "График";
-		panel3->Title->Text = "График";
+		panel2->XAxis->Title->Text = "Ось x, время";
+		panel2->YAxis->Title->Text = "Ось u, смещение";
+		panel3->XAxis->Title->Text = "Ось x, время";
+		panel3->YAxis->Title->Text = "Ось u', скорость";
+		panel2->Title->Text = "График зависимости смещения от времени";
+		panel3->Title->Text = "График зависимости скорости от времени";
 		PointPairList^ f1_list = gcnew ZedGraph::PointPairList();
 		PointPairList^ f2_list = gcnew ZedGraph::PointPairList();
 		PointPairList^ f3_list = gcnew ZedGraph::PointPairList();
@@ -677,9 +740,9 @@ namespace Graph {
 		//textBox_max_GE->Text = Convert::ToString(global_error_max);
 		//textBox_max_GE_x->Text = Convert::ToString(global_error_max_x);
 
-		LineItem Curve1 = panel->AddCurve("u - u'", f1_list, Color::Blue,SymbolType::None);
-		LineItem Curve2 = panel2->AddCurve("x - u", f2_list, Color::Red, SymbolType::None);
-		LineItem Curve3 = panel3->AddCurve("x - u'", f3_list, Color::Black, SymbolType::None);
+		LineItem Curve1 = panel->AddCurve("", f1_list, Color::Blue,SymbolType::None);
+		LineItem Curve2 = panel2->AddCurve("", f2_list, Color::Red, SymbolType::None);
+		LineItem Curve3 = panel3->AddCurve("", f3_list, Color::Black, SymbolType::None);
 
 		//textBox_max_LE->Text = Convert::ToString(max_local_error);
 

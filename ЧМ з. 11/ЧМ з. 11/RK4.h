@@ -74,8 +74,14 @@ std::list<std::vector<double> > numerical_function_control_task11(double x0, dou
 	std::vector<double> v0 = { x0, u0, z0, 0, 0, 0, 0, 0, 0, C1, C2 };
 	result.push_back(v0);
 	int i = 0;
-	while ((x < b - RBC) && (i < N_MAX))
+	int flag1 = 0;
+	int flag2 = 0;
+	while ((x < b) && (i < N_MAX))
 	{
+		if (flag1 == 1)
+		{
+			break;
+		}
 		std::vector<double> tmp = RK4_task11(x, u_current, z_current, h, m, c, k, k_);
 		u_next = tmp[0];
 		z_next = tmp[1];
@@ -94,32 +100,53 @@ std::list<std::vector<double> > numerical_function_control_task11(double x0, dou
 		{
 			s_max = s_z;
 		}
-
-		if (s_max > epsilon)
+		//if (s_max > epsilon && x + h < b - RBC)
+		if (s_max > epsilon && flag2 == 0)
 		{
 			h /= 2.0;
 			C1++;
 		}
 		else
 		{
-			x += h;
-			///*
-			if (x >= b)
+			if (x + h <= b)
 			{
-				break;
+				x += h;
+				if (x >= b - RBC)
+				{
+					flag1 = 1;
+				}
+				/*
+				if (x >= b)
+				{
+					break;
+				}
+				*/
+				u_current = u_next;
+				z_current = z_next;
+				std::vector<double> v = { x, u_current, z_current, u_next_double, z_next_double, u_current - u_next_double, z_current - z_next_double, s_max * 16.0, h, C1, C2 };
+				//if (x + h < b - RBC)
+				if (flag2 == 0)
+				{
+					if (s_max < epsilon / 32.0)
+					{
+						h *= 2.0;
+						C2++;
+					}
+				}
+				//v[10] = C2;
+				result.push_back(v);
+				i++;
 			}
-			//*/
-			u_current = u_next;
-			z_current = z_next;
-			std::vector<double> v = { x, u_current, z_current, u_next_double, z_next_double, u_current - u_next_double, z_current - z_next_double, s_max * 16.0, h, C1, C2 };
-			if (s_max < epsilon / 32.0)
+			else
 			{
-				h *= 2.0;
-				C2++;
+				flag2 = 1;
+				//while (!(x + h > b - RBC && x + h <= b))
+				while (x + h >= b)
+				{
+					h /= 2.0;
+					C1++;
+				}
 			}
-			//v[10] = C2;
-			result.push_back(v);
-			i++;
 		}
 	}
 	return result;

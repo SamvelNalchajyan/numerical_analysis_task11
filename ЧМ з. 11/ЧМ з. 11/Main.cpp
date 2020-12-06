@@ -4,7 +4,7 @@
 #include <iterator>
 #include <iomanip>
 #include "RK4.h"
-#define EPS 0.001
+#define EPS 0.0001
 
 int main()
 {
